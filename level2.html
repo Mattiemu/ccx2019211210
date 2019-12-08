@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<button id="submit">发送一个请求</button>
+<script>
+let msg ={
+    name:'ccx',
+    id:2019211210}
+
+let button = document.getElementById("submit")
+button.addEventListener('click',()=> {
+    fetch('http://39.107.142.107:3000/mock/25/testPost',{
+        method:'POST',
+        body:JSON.stringify(msg),
+        headers:{
+            'content-type':'application/json'
+        }
+    })
+      .then(
+          function(responce){
+              return responce.json()
+          }
+      )
+      .then(function(myjson){
+          console.log(myjson)
+      })
+}
+
+)
+</script>
+
+
+<button id="submita">发送一个请求</button>
+<script>
+
+let buttona = document.getElementById("submita")
+buttona.addEventListener('click',()=> {
+    fetch('http://39.107.142.107:3000/mock/25/getText',{
+        method:'GET',
+        
+        headers:{
+            'content-type':'application/json'
+        }
+    })
+      .then(
+          function(responce){
+              return responce.json()
+          }
+      )
+      .then(function(myjson){
+          console.log(myjson)
+      })
+}
+
+)
+</script>
+
+
+
+
+
+
+
+
+</body>
+</html>
